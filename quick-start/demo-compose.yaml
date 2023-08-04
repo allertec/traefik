@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  whoami:
+    image: traefik/whoami
+    labels:
+      - "traefik.http.routers.whoami.rule=Host(`whoami.docker.localhost`)"
+  nginx:
+    image: nginx
+    container_name: nginx
+    labels:
+      - "traefik.http.routers.nginx.rule=Host(`nginx.docker.localhost`)"
+  nginx2:
+    image: nginx
+    container_name: nginx2
+    labels:
+      - "traefik.http.routers.nginx2.rule=Host(`nginx2.docker.localhost`)"
